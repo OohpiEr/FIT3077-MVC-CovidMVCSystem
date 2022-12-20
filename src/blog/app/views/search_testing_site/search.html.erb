@@ -1,0 +1,15 @@
+<%= render 'title' %>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<ul>
+    <% @results.each do |result| %>
+        <li style='text-align: left'>
+            <%= sanitize result %>
+        </li>
+    <% end %>
+</ul>

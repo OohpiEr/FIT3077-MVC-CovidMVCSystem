@@ -1,0 +1,40 @@
+<% flash.each do |type, msg| %>
+  <div style="text-align:center">
+    <h6>
+        <%= msg %>
+    </h6>
+  </div>
+<% end %>
+
+<h1>All Bookings</h1>
+
+<div id="testing_site_bookings_table" , class="table-responsive">
+ <table class="table table-striped table-bordered table-hover">
+        <tr class="table-dark">
+            <th>Booking Id </th>              
+            <th>Testing Site </th>
+            <th>Appointment Date</th>
+            <th>Last Modified</th>
+            <th>User</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    
+        <% @bookings.each_with_index do |booking, i| %>
+            <tr>
+                <td><%=booking.id %></td>
+                <td>NAME: <%=booking.testingSiteData[:name] %><br> ID: <%=booking.testingSiteData[:id] %></td>
+                <td><%=booking.startTime %></td>
+                <td><%=booking.updatedAt %></td>
+                <td><%=booking.customer[:userName] %></td>
+                <td><%=booking.status %></td>
+                <td><%= link_to "Show", profile_show_path(booking.id)%><br>
+                    <%= link_to "Delete", testing_site_bookings_delete_path(bookingId: booking.id) %> <br>
+                    <% if ![BookingStatus::Cancelled, BookingStatus::Lapsed].include? booking.status %>
+                        <%= link_to "Cancel", testing_site_bookings_cancel_path(bookingId: booking.id) %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table> 
+ </div>

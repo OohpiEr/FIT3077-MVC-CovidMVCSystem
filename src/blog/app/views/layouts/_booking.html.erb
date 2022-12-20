@@ -1,0 +1,49 @@
+<div class="table-responsive">
+	<table class="table table-striped table-bordered table-hover">
+		<tbody>
+            <tr class="table-dark">
+                <td colspan="2">Booking</td>
+            </tr>
+			<tr>
+				<th>ID</th>
+				<td><%= booking.id %></td>
+			</tr>
+			<tr>
+				<th>Testing Site</th>
+				<td>
+					<% if booking.testingSiteData %> 
+						<%= booking.testingSiteData[:name]%><br />
+						<%=booking.testingSiteData[:id] %>
+					<% else %>
+						<%= "Home Testing" %><br />
+					<% end %>
+				</td>
+			</tr>
+			<tr>
+				<th>Appointment Time</th>
+				<td><%= booking.startTime %></td>
+			</tr>
+			<tr>
+				<th>Modified At</th>
+				<td><%= booking.updatedAt %></td>
+			</tr>
+			<tr>
+				<th>User</th>
+				<td><%= booking.customer[:userName] %></td>
+			</tr>
+			<tr>
+				<th>status</th>
+				<td><%= booking.status %></td>
+			</tr>
+			<tr>
+				<th>covidTests</th>
+				<td><%= booking.covidTests %></td>
+			</tr>
+			<tr>
+				<th>notes</th>
+				<td><%= booking.notes %></td>
+			</tr>    
+		</tbody>
+	</table>
+
+</div>

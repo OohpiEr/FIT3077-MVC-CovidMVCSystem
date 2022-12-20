@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <%= link_to 'Covid 19 Test Booking System', home_index_path, class: "navbar-brand", style: "padding-left: 0.5em;" %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <% if !(current_page?(root_path) or current_page?(:controller => 'login'))%>
+                <%= link_to 'Home', home_index_path, class: "nav-item nav-link" ,style: "padding-left: 25px" %>
+                <% if @isCustomer %>
+                    <%= link_to 'Profile', profile_index_path, class: "nav-item nav-link", style: "padding-left: 25px" %>
+                <% end %>
+            <% end %>
+            <% if !(current_page?(root_path) or current_page?(:controller => 'login')) %>
+                <%= link_to 'Log Out', root_path, class: "nav-item nav-link" , style: "padding-left: 25px" %>
+            <% end %>
+
+        </div>
+    </div>
+</nav>

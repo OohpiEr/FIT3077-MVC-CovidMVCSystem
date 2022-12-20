@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <tr class="table-dark">
+            <th>Number</th>                 
+            <th>Testing Site </th>                 
+            <th>Appointment Date</th>
+            <th>Last Modified</th>
+        </tr>
+
+        <% i = 1 %>
+        <% mementos.reverse_each do |memento| %>
+            <tr>
+                <td><%= i %></td>
+                <td>NAME: <%=memento[:testingSiteData][:name] %><br> ID: <%=memento[:testingSiteData][:id] %></td>
+                <td><%= Time.parse(memento[:startTime]) %></td>
+                <td><%= Time.parse(memento[:modifiedAt]) %></td>
+            </tr>
+            <% i += 1 %>
+        <% end %>
+    </table> 
+</div>

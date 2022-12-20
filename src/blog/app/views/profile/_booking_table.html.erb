@@ -1,0 +1,36 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <tr class="table-dark">
+            <th>Booking Id </th>              
+            <th>Testing Site </th>                 
+            <th>Appointment Date</th>
+            <th>Last Modified</th>
+            <th>Status</th>
+            <th>User</th>
+            <th></th>
+        </tr>
+
+        <% bookings.each do |booking| %>
+            <tr>
+                <td><%=booking.id %></td>
+                <td>
+                    <% if booking.testingSiteData %>
+                        NAME: <%=booking.testingSiteData[:name] %><br> ID: <%=booking.testingSiteData[:id] %>
+                    <%else%>
+                        N/A
+                    <%end%>
+                </td>
+                <td><%=booking.startTime %></td>
+                <td><%=booking.updatedAt %></td>
+                <td><%=booking.status %></td>
+                <td><%=booking.customer[:userName] %></td>
+                <td>
+                    <%= link_to "Show", profile_show_path(booking.id)%><br>
+                    <% if ![BookingStatus::Cancelled, BookingStatus::Lapsed].include? booking.status %>
+                        <%= link_to "Cancel", profile_cancel_path(bookingId: booking.id) %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table> 
+</div>

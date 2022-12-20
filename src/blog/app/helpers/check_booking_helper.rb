@@ -1,0 +1,2 @@
+module CheckBookingHelper
+end

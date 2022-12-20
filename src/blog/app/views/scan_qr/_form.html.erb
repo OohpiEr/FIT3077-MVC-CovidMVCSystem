@@ -1,0 +1,12 @@
+<h1>Scan QR code</h1>
+
+<%= form_with do |form| %>
+    <%= form.label :qr_code, "QR code:" %>
+    <%= form.text_field :qr_code %>
+    
+    <p>
+        <%= form.submit "Scan" %>
+    </p>
+
+<% end %>
+

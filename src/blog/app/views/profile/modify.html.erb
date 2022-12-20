@@ -1,0 +1,26 @@
+<h1>Modify Booking</h1>
+<br>
+
+<%= form_with do |form| %>
+    <%= form.label :testingsite_id, "Testing Site Id:" %>
+    <%= form.text_field :testingsite_id %>
+    <br>
+    <br>
+    <%= form.label :startTime, "Appointment Time:" %>
+    <%= form.datetime_local_field :startTime %>
+    <br>
+    <br>
+    
+    <%= hidden_field_tag 'bookingId', params[:format] %>
+    
+    <p>
+        <%= form.submit "Modify" %>
+    </p>
+
+<% end %>
+
+<% flash.each do |type, msg| %>
+    <div>
+        <%= msg %>
+    </div>
+<% end %>

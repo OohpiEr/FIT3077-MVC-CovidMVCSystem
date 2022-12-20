@@ -1,0 +1,26 @@
+<%= form_with do |f| %>
+    <h4>Customer Username: </h4> 
+    <%= f.text_field :username %>
+
+    <h4>Start Time: </h4> 
+    <%= f.datetime_local_field :startTime %><br><br>
+
+    <%= f.check_box :has_testkit %>
+    <%= f.label :has_testkit, "Patient has already has a covid testkit" %><br>
+
+    <h4>Notes: </h4> 
+    <%= f.text_area :notes %>
+
+    <% if flash[:notice] != nil %>
+        <% flash[:notice].each do |msg| %>
+            <div>
+                <%= msg %>
+            </div>
+        <% end %>
+    <% end %>
+
+    <p>
+        <%= f.submit "Make Booking" %>
+    </p>
+
+<% end %>

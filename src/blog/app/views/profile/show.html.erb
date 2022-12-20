@@ -1,0 +1,39 @@
+<% flash.each do |type, msg| %>
+  <div style="text-align:center">
+    <h6>
+        <%= msg %>
+    </h6>
+  </div>
+<% end %>
+
+
+
+<h1>Booking Details</h1>
+<br>
+<%= render(:partial => "layouts/booking", :locals => {:booking => @booking})%>
+<br>
+
+<h3>Previous Changes</h3>
+<% if not @booking.additionalInfo[:mementos].nil? and not @booking.additionalInfo[:mementos].empty? %>
+    <%= render(:partial => "profile/booking_memento_table", :locals => {:booking => @booking, :mementos => @booking.additionalInfo[:mementos]})%>
+<% else %>
+    <p>No Previous Changes</p>
+<% end %>
+
+
+<div class="container">
+    <% if ![BookingStatus::Cancelled, BookingStatus::Lapsed].include? @booking.status %>
+        <%= button_to "Modify", profile_modify_path(@booking.id), class: "btn btn-secondary", method: :get%>
+        <% if (not @booking.additionalInfo[:mementos].nil? and not @booking.additionalInfo[:mementos].empty?) and @booking.additionalInfo[:undoCount] < 3 %>
+            <br><%= button_to "Undo", profile_undo_path(@booking.id), class: "btn btn-secondary", method: :get%>
+        <% end %>
+    <% end %>
+</div>
+
+<br>
+
+<% if @isCustomer %>
+    <%= button_to "◀ Back To Profile", profile_index_path, class: "btn btn-secondary", method: :get %>
+<% elsif @isReceptionist %>
+    <%= button_to "◀ All Bookings", testing_site_bookings_index_path, class: "btn btn-secondary", method: :get %>
+<% end %>

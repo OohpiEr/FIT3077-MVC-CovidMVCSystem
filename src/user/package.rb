@@ -1,0 +1,6 @@
+require_relative 'customer'
+require_relative 'healthcare_worker'
+require_relative 'receptionist'
+require_relative 'user_factory'
+require_relative 'user_type'
+require_relative 'user'

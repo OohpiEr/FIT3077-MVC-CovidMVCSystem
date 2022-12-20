@@ -1,0 +1,27 @@
+<% flash.each do |type, msg| %>
+  <div style="text-align:center">
+    <h6>
+        <%= msg %>
+    </h6>
+  </div>
+<% end %>
+
+<h1>Profile</h1>
+<hr>
+<h3>Active Bookings</h3>
+
+<div id="profile_active_bookings">
+    <%= render(:partial => "profile/booking_table", :locals => {:bookings => @activeBookings})%>
+</div>
+
+<br>
+<h3>Lapsed Bookings</h3>
+ <div id="profile_lapsed_bookings">
+    <%= render(:partial => "profile/booking_table", :locals => {:bookings => @lapsedBookings})%>
+</div>
+
+<br>
+<h3>Home Bookings</h3>
+ <div id="profile_home_bookings">
+    <%= render(:partial => "profile/booking_table", :locals => {:bookings => @homeBookings})%>
+</div>

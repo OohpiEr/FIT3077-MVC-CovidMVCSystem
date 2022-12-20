@@ -1,0 +1,32 @@
+<h1>Interview Form</h1>
+
+<%= form_with do |form| %>
+    <%= form.label :sms_pin, "Booking PIN:" %>
+    <%= form.text_field :sms_pin %>
+    <br>
+    <br>
+    <%= form.check_box :has_sore_throat %>
+    <%= form.label :has_sore_throat, "Patient has sore_throat" %><br>
+    <%= form.check_box :has_cough %>
+    <%= form.label :has_cough, "Patient has cough" %><br>
+    <%= form.check_box :has_fever %>
+    <%= form.label :has_fever, "Patient has fever" %><br>
+    <%= form.check_box :difficulty_breathing %>
+    <%= form.label :difficulty_breathing, "Patient has difficulty breathing" %><br>
+    <%= form.check_box :close_contact %> 
+    <%= form.label :close_contact, "Patient has been in close contact with a person diagnosed with covid in the last 14 days" %>
+
+    <p>
+        <%= form.submit "Submit" %>
+    </p>
+
+<% end %>
+
+<% flash.each do |type, msg| %>
+    <div>
+        <%= msg %>
+    </div>
+<% end %>
+
+
+

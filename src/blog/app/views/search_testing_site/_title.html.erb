@@ -1,0 +1,27 @@
+<h1>Search For A Testing Facility</h1>
+
+<%= form_with do |f| %>
+    <p>
+        <h4>Suburb: </h4> 
+        <%= f.search_field :suburb %>
+    </p>
+
+    <p>
+        <h4>Facility Type: </h4>
+        <%= f.check_box :is_drive_through %>
+        <%= f.label :is_drive_through, "Drive Through" %> <br>
+        <%= f.check_box :is_walk_in %>
+        <%= f.label :is_walk_in, "Walk-in" %> <br>
+        <%= f.check_box :is_clinic %>
+        <%= f.label :is_clinic, "Clinic" %> <br>
+        <%= f.check_box :is_gp %>
+        <%= f.label :is_gp, "GP" %> <br>
+        <%= f.check_box :is_hospital %>
+        <%= f.label :is_hospital, "Hospital" %> <br>
+    </p>
+
+    <p>
+        <%= f.submit "Search" %>
+    </p>
+
+<% end %>

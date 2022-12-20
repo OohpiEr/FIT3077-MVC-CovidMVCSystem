@@ -1,0 +1,23 @@
+<h1>Home</h1>
+
+<%= button_to "Search for Testing Site", search_testing_site_index_path, class: "btn btn-secondary", method: :get %> <br>
+
+<% if @isCustomer or @isReceptionist %>
+    <%= button_to "Search Booking", search_booking_search_path, class: "btn btn-secondary", method: :get %> <br>
+<% end %>
+
+<% if @isCustomer %> 
+    <%= button_to "New Home Booking", create_home_booking_index_path, class: "btn btn-secondary", method: :get %> <br>
+    <%= button_to "Profile", profile_index_path, class: "btn btn-secondary", method: :get %> <br>
+<% end %> 
+
+<% if @isReceptionist %>
+    <%= button_to "New Testing Site Booking", create_booking_index_path, class: "btn btn-secondary", method: :get %> <br>
+    <%= button_to "Scan QR", scan_qr_index_path, class: "btn btn-secondary", method: :get %> <br>
+    <%= button_to "Testing Site Bookings", testing_site_bookings_index_path, class: "btn btn-secondary", method: :get %> <br>
+<% end %>
+
+<% if @isHealthcareWorker %>
+    <%= button_to "Interview Form", interview_form_index_path, class: "btn btn-secondary", method: :get %> <br>
+<% end %>
+
